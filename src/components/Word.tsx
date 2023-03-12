@@ -16,7 +16,6 @@ const Word = () => {
             audioRef.current.play()
         }
     }
-
     return (
         <>
             {word
@@ -29,14 +28,24 @@ const Word = () => {
                             <WordName>{word.word}</WordName>
                             <Phonetic>{word.phonetic}</Phonetic>
                         </div>
-                        {
-                            word.phonetics ? <SoundButton onClick={playAudio}>
-                                <Sound ref={audioRef} src={word.phonetics[0].audio}/>
-                            </SoundButton> : ''
-                        }
-                    </Main>
-                </Container>
 
+                        {word.phonetics ? word.phonetics.slice(0, 1).map(p => {
+                            if (p.audio !== '')
+                                return <SoundButton onClick={playAudio}>
+                                    <Sound ref={audioRef} key={p.audio} src={p.audio}/>
+                                </SoundButton>;
+                        }) : ''}
+                    </Main>
+
+                    {/*{word.meanings.map(m => {*/}
+                    {/*    return <Meanings>*/}
+                    {/*        <Segment>{m.partOfSpeech}</Segment>*/}
+
+                    {/*    </Meanings>*/}
+                    {/*})}*/}
+
+
+                </Container>
 
 
                 : ''
@@ -70,6 +79,10 @@ const SoundButton = styled.div`
   background-image: url(${soundImg});
 `
 const Sound = styled.audio`
+
+`
+
+const Meanings = styled.div`
 
 `
 const Segment = styled.div`
