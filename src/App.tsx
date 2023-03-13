@@ -23,7 +23,7 @@ function App() {
 const Container = styled.header`
   max-width: 620px;
   margin: 0 auto;
-  padding: 35px 10px;
+  padding: 35px 15px;
 `
 
 const Main = styled.main`

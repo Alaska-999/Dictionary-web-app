@@ -48,7 +48,7 @@ const Button = styled.button`
     content: url(${searchIcon});
     position: relative;
     top: -35px;
-    left: 550px;
+    left: 540px;
   }
  
 `

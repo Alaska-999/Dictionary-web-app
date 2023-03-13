@@ -6,14 +6,15 @@ interface Phonetics {
 
 interface Meanings {
     partOfSpeech: string,
-    definitions: [
-        {
-            definition?: string,
-            example?: string,
-            synonyms?: string[],
-            antonyms?: string[]
-        }
-    ]
+    definitions: Definitions[],
+    synonyms?: string[],
+    antonyms?: string[]
+}
+
+interface Definitions {
+    definition?: string,
+    example?: string,
+
 }
 
 export interface IWord {
