@@ -53,24 +53,47 @@ const Word = () => {
                                 ))}
 
                                 {m.synonyms && m.synonyms?.length > 0 && (
-                                    <Expressions>
+                                    <ControlNames>
                                         <Heading>Synonyms</Heading>
-                                        {m.synonyms.map((s) => (
-                                            <Synonym>{s}</Synonym>
-                                        ))}
-                                    </Expressions>
+                                        <Expressions>
+                                            {m.synonyms.map((s) => (
+                                                <ControlName>{s}</ControlName>
+                                            ))}
+                                        </Expressions>
+                                    </ControlNames>
+
                                 )}
+                                {m.antonyms && m.antonyms?.length > 0 && (
+                                    <ControlNames>
+                                        <Heading>Antonyms</Heading>
+                                        <Expressions>
+                                            {m.antonyms.map((a) => (
+                                                <ControlName>{a}</ControlName>
+                                            ))}
+                                        </Expressions>
+                                    </ControlNames>
+                                )}
+
 
                             </Meanings>
                         );
                     })}
-                    <Line/>
-                    <Source>
-                        Source
-                        <Link href={`https://en.wiktionary.org/wiki/${word.word}`}>
-                            https://en.wiktionary.org/wiki/{word.word}
-                        </Link>
-                    </Source>
+
+                    {
+                        word.word &&
+                        <>
+                            <Line/>
+                            <Source>
+
+                                Source
+                                <Link href={`https://en.wiktionary.org/wiki/${word.word}`}>
+                                    https://en.wiktionary.org/wiki/{word.word}
+                                </Link>
+                            </Source>
+                        </>
+
+                    }
+
 
                 </Container>
                 : ''
@@ -112,7 +135,8 @@ const Sound = styled.audio`
 `
 
 const Meanings = styled.div`
-  margin: 10px 0;
+  margin: 20px 0;
+
 `
 
 const Segment = styled.div`
@@ -124,7 +148,7 @@ const Segment = styled.div`
 `
 
 const PartOfSpeech = styled.div`
- margin-right: 10px;
+  margin-right: 10px;
 `
 const Line = styled.div`
   border-top: 1px solid var(--line-color);
@@ -162,12 +186,19 @@ const Example = styled.div`
 
 const Expressions = styled.div`
   display: flex;
+  flex-wrap: wrap;
 
 `
-const Synonym = styled.div`
-  margin-left: 20px;
+const ControlNames = styled.div`
+ display: flex;
+  margin: 20px 0;
+`
+
+const ControlName = styled.div`
+  margin-left: 15px;
   color: var(--purple);
   font-weight: 700;
+  max-width: 500px;
 `
 
 const Source = styled.div`
