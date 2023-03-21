@@ -107,7 +107,7 @@ const Word = () => {
 };
 
 const Container = styled.div`
-  font-family: sans-serif;
+  font-family: var(--family);
   color: var(--color-text);
 `
 
@@ -145,6 +145,7 @@ const Meanings = styled.div`
 
 const Segment = styled.div`
   display: flex;
+  font-family: var(--family);
   font-size: 20px;
   font-weight: 500;
   font-style: italic;

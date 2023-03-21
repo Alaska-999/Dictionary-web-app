@@ -49,6 +49,20 @@ const GlobalStyle = createGlobalStyle`
     --line-color: RGB(47, 47, 46)
 
   }
+  
+  body[data-font = 'Serif'] {
+    --family: serif;
+  }
+  
+  body[data-font = 'SansSerif'] {
+    --family: sans-serif;
+
+  }
+  
+  body[data-font = 'Monospace'] {
+    --family: monospace;
+
+  }
 
 `
 

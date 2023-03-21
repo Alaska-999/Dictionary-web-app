@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from "styled-components";
 import logo from '/images/logo.svg'
 import ThemeSwitcher from "./UI/ThemeSwitcher";
@@ -8,17 +8,22 @@ const Header = () => {
 
     const [isFonts, setFonts] = useState(false)
 
+    const [font, setFont] = useState('Serif')
+
+    useEffect(() => {
+        document.body.setAttribute('data-font', font)
+    }, [font])
 
     return (
         <HeaderContainer>
             <Logo/>
             <Controls>
-                <Fonts onClick={() => setFonts(!isFonts)}>SansSerif</Fonts>
+                <Fonts onClick={() => setFonts(!isFonts)}>{font}</Fonts>
                 {isFonts ?
                     <FontsList>
-                        <Font>Serif</Font>
-                        <Font>SansSerif</Font>
-                        <Font>Monospace</Font>
+                        <Font onClick={() => setFont('Serif')}>Serif</Font>
+                        <Font onClick={() => setFont('SansSerif')}>SansSerif</Font>
+                        <Font onClick={() => setFont('Monospace')}>Monospace</Font>
                     </FontsList>
                 :
                     ''
@@ -34,7 +39,7 @@ const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: sans-serif;
+  font-family: var(--family);
   font-weight: 700;
   
 `
@@ -59,7 +64,7 @@ const Fonts = styled.button`
   cursor: pointer;
   background-color: transparent;
   color: var(--color-text);
-  font-family: sans-serif;
+  font-family: var(--family);
   font-weight: 700;
   font-size: 16px;
   ::after {
@@ -78,6 +83,7 @@ const FontsList = styled.ul`
   padding: 5px 15px;
   box-shadow: 0 15px 40px -15px  var(--switcher-color);
   background-color: var(--box-bg);
+  
  
 `
 

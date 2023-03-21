@@ -11,7 +11,8 @@ const Search = () => {
     const toggleWord = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         // @ts-ignore
-        dispatch(loadWord((e.currentTarget.elements[0] as HTMLInputElement).value))
+        dispatch(loadWord((e.currentTarget.elements[0] as HTMLInputElement).value));
+        (e.currentTarget.elements[0] as HTMLInputElement).value = ''
     }
 
     return (
@@ -34,6 +35,7 @@ const Input = styled.input`
   border-radius: 15px;
   font-size: 16px;
   font-weight: 700;
+  font-family: var(--family);
   color: var(--color-text);
     ::placeholder {
       color: var(--placeholder);
