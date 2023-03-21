@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import styled from "styled-components";
 import Word from "./components/Word";
 import Search from "./components/Search";
+import {useTypedSelector} from "./hooks/useTypedSelector";
+import React from "react";
 
 
 function App() {

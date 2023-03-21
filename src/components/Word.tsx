@@ -4,11 +4,13 @@ import {IWord} from "../types/word";
 import styled from "styled-components";
 import soundImg from '/images/icon-play.svg'
 import logo from "/images/logo.svg";
+import {WordState} from "../types/wordState";
 
 const Word = () => {
 
-    // @ts-ignore
+// @ts-ignore
     const word: IWord = useTypedSelector(state => state.wordReducer.word)
+    const {error, status} = useTypedSelector(state => state.wordReducer)
 
     const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -17,7 +19,13 @@ const Word = () => {
             audioRef.current.play()
         }
     }
-    console.log(word)
+
+    if (status === 'loading') {
+        return <h1>Loading...</h1>
+    } else if (error) {
+        return <h1>{error}</h1>
+    }
+
     return (
         <>
             {word
@@ -34,7 +42,6 @@ const Word = () => {
                             <SoundButton onClick={playAudio}>
                                 <Sound ref={audioRef} src={word.phonetics.find(p => p.audio)?.audio}/> </SoundButton>
                             : ''}
-
                     </Main>
 
                     {word.meanings && word.meanings.map(m => {
@@ -91,10 +98,7 @@ const Word = () => {
                                 </Link>
                             </Source>
                         </>
-
                     }
-
-
                 </Container>
                 : ''
             }
@@ -190,7 +194,7 @@ const Expressions = styled.div`
 
 `
 const ControlNames = styled.div`
- display: flex;
+  display: flex;
   margin: 20px 0;
 `
 

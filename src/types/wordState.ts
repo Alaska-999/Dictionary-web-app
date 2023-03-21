@@ -19,6 +19,7 @@ export interface WordState {
     status: 'idle' | 'loading' | 'rejected' | 'received',
     error: string | null
     word: IWord | {}
+    // [Symbol.iterator](): IterableIterator<any>;
 }
 
 export type WordActionTypes =
