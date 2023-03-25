@@ -3,8 +3,6 @@ import {useTypedSelector} from "../hooks/useTypedSelector";
 import {IWord} from "../types/word";
 import styled from "styled-components";
 import soundImg from '/images/icon-play.svg'
-import logo from "/images/logo.svg";
-import {WordState} from "../types/wordState";
 
 const Word = () => {
 
@@ -114,25 +112,40 @@ const Container = styled.div`
 const Main = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
 `
 
 const WordName = styled.div`
   font-size: 50px;
   font-weight: 700;
+  
+  @media (max-width: 600px) {
+    font-size: 36px;
+  }
 `
 
 const Phonetic = styled.div`
   margin: 10px 0;
   font-size: 20px;
   color: var(--purple);
+  
+  @media (max-width: 600px) {
+    font-size: 18px;
+  }
 `
 
 const SoundButton = styled.div`
   cursor: pointer;
   width: 100px;
   height: 100px;
+  background-size: contain;
   background-repeat: no-repeat;
   background-image: url(${soundImg});
+  
+  @media (max-width: 600px) {
+    width: 60px;
+    height: 60px;
+  }
 `
 const Sound = styled.audio`
 
@@ -140,7 +153,6 @@ const Sound = styled.audio`
 
 const Meanings = styled.div`
   margin: 20px 0;
-
 `
 
 const Segment = styled.div`
@@ -150,6 +162,10 @@ const Segment = styled.div`
   font-weight: 500;
   font-style: italic;
   margin-bottom: 25px;
+  
+  @media (max-width: 600px) {
+    font-size: 18px;
+  }
 `
 
 const PartOfSpeech = styled.div`
@@ -169,10 +185,15 @@ const Heading = styled.div`
 const MeaningsItem = styled.li`
   margin-left: 15px;
   font-size: 15px;
-  line-height: 21px;;
+  line-height: 21px;
 
   ::marker {
     color: var(--purple);
+  }
+
+  @media (max-width: 600px) {
+    font-size: 14px;
+    line-height: 18px;
   }
 `
 

@@ -7,7 +7,6 @@ import React from "react";
 
 
 function App() {
-
     return (
         <Container className="App">
             <GlobalStyle/>
@@ -25,10 +24,16 @@ const Container = styled.header`
   max-width: 620px;
   margin: 0 auto;
   padding: 35px 15px;
+  @media (max-width: 600px) {
+    padding: 20px 20px;
+  }
 `
 
 const Main = styled.main`
   margin: 40px auto 0;
+  @media (max-width: 600px) {
+    margin: 20px auto 0;
+  }
 `
 
 export default App

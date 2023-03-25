@@ -1,4 +1,4 @@
-import React, {FormEvent, useEffect} from 'react';
+import React, {FormEvent} from 'react';
 import styled from "styled-components";
 import searchIcon from '/images/icon-search.svg'
 import {useDispatch} from "react-redux";
@@ -25,6 +25,10 @@ const Search = () => {
 
 const Form = styled.form`
   margin-bottom: 20px;
+  @media (max-width: 600px) {
+    margin-bottom: 0;
+
+  }
 `
 
 const Input = styled.input`
@@ -40,19 +44,30 @@ const Input = styled.input`
     ::placeholder {
       color: var(--placeholder);
     }
+  @media (max-width: 600px) {
+    padding: 14px;
+    font-size: 14px;
+  }
 `
 
 const Button = styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
+  position: sticky;
+  left: 870px;
+  
   ::after {
     content: url(${searchIcon});
     position: relative;
     top: -35px;
-    left: 540px;
+    right: 20px;
   }
- 
+  @media (max-width: 600px) {
+    ::after {
+      top: -32px;
+    }
+  }
 `
 
 export default Search;

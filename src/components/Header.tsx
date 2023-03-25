@@ -47,7 +47,7 @@ const Logo = styled.div`
   background-color: transparent;
   color: var(--switcher-color);
   font-weight: 700;
-
+  
   &::before {
     content: url(${logo});
   }
@@ -58,6 +58,17 @@ const Controls = styled.div`
   display: flex;
   justify-content: space-between;
   height: 20px;
+  
+  @media (max-width: 470px) {
+    width: 50%;
+  }
+  
+  @media (max-width: 360px) {
+    width: 65%;
+  } 
+  @media (max-width: 270px) {
+    width: 75%;
+  }
 `
 const Fonts = styled.button`
   border: none;
