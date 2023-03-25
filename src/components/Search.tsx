@@ -55,13 +55,14 @@ const Button = styled.button`
   background-color: transparent;
   cursor: pointer;
   position: sticky;
-  left: 870px;
+  left: 1400px;
   
   ::after {
     content: url(${searchIcon});
     position: relative;
     top: -35px;
-    right: 20px;
+    left: -20px;
+   
   }
   @media (max-width: 600px) {
     ::after {

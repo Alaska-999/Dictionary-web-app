@@ -186,7 +186,7 @@ const MeaningsItem = styled.li`
   margin-left: 15px;
   font-size: 15px;
   line-height: 21px;
-
+  margin-bottom: 10px;
   ::marker {
     color: var(--purple);
   }
